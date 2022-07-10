@@ -20,16 +20,23 @@
 			</nav>
 		</header>
 		<main id="app" class="container flex-shrink-0" style="max-width: 960px">
-			<section class="container mt-5 text-center">
+			<section class="container mt-5">
 				<h1 class="display-4">Baby Names</h1>
 				<p class="lead">
 					This site allows you to view statistics on baby names in New Zealand.
 				</p>
-				<b-form-select v-model.number="year" :options="years"></b-form-select>
-				<ol v-if="names">
-					<li v-for="name in topx">{{name.name}} ({{name.number}})</li>
-				</ol>
-				<!--<apexchart width="500" type="line" :series="data" />-->
+				<b-card :header="'Top ' + top">
+					<template #footer>
+						<b-form-select v-model.number="year" :options="years"></b-form-select>
+					</template>
+					<b-card-text>
+						<ol v-if="names">
+							<li v-for="name in topx">{{name.name}} ({{name.number}})</li>
+						</ol>
+					</b-card-text>
+				</b-card>
+				<!--<apexchart width="500" type="line" :series="chartData" />-->
+				<line-chart :chart-data="chartData" chart-id="line-chart"></line-chart>
 			</section>
 		</main>
 		<footer class="footer mt-auto py-3 text-center bg-dark text-light">
@@ -43,7 +50,11 @@
 	<!--<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>-->
 	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-chartjs/4.1.1/index.min.js" integrity="sha512-drlD/4lmrD/m9FcEPFWrfCj3BGy2BSg0cvAmSeaPyk604WErOUJmCYUM3isH1itFhSjNGkvJ7VOBFjeeQLp5tQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
-	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
+	<!--<script src="https://unpkg.com/chart.js/dist/chart.min.js"></script>
+	<script type="javascript" src="https://unpkg.com/vue-chart-3@legacy/dist/index.js"></script>-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+	<script src="https://unpkg.com/vue-chartjs@3.4.0/dist/vue-chartjs.js"></script>
+	<!--<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>-->
 	<script type="module" src="/index.js"></script>
 </html>

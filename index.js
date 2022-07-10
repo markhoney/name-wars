@@ -3,9 +3,13 @@
 // import {BootstrapVue} from 'https://unpkg.com/bootstrap-vue/dist/bootstrap-vue.esm.js';
 // import vueChart3 from 'https://unpkg.com/vue-chart-3/dist/index.js';
 
+// Chart.register(Chart.registerables);
+
 var vm = new Vue({
 // createApp({
 	el: '#app',
+	// components: {BarChart},
+	components: {BarChart: VueChartJs.Bar, LineChart: VueChartJs.Line},
 	data() {
 		return {
 			names: null,
@@ -18,20 +22,22 @@ var vm = new Vue({
 	},
 	computed: {
 		years() {
-			return [...Array(this.end - this.start).keys()].map((e) => e + this.start);
+			return [...Array(this.end + 1 - this.start).keys()].map((e) => e + this.start);
 		},
 		topx() {
 			return Object.keys(this.names).map((name) => ({name, number: this.names[name][this.year] || 0})).sort((a, b) => b.number - a.number).slice(0, this.top);
 		},
-		data() {
+		chartData() {
 			if (!this.names) return {};
 			return {
 				labels: this.years,
-				xaxis: {
+				/* xaxis: {
 					categories: this.years,
-				},
+				}, */
 				datasets: this.compare.map((name) => ({
-					name,
+					label: name,
+					// name,
+					backgroundColor: '#f87979',
 					data: this.names[name] ? this.years.map((year) => this.names[name][year] || 0) : [],
 				})),
 			};
