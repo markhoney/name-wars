@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" class="h-100">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Baby Names</title>
+		<meta property="og:site_name" content="Baby Names">
+		<meta property="og:title" content="Baby name popularity over time">
+		<meta property="og:description" name="description" content="This site allows you to view statistics on baby names in New Zealand">
+		<meta property="og:type" content="website" />
+		<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css" />
+		<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+	</head>
+	<body class="d-flex flex-column h-100">
+		<header class="p-3 text-center bg-dark text-light">
+			<nav class="navbar navbar-expand-md text-center"><!-- fixed-top -->
+				<a class="navbar-brand fs-2 text-reset" href="/">
+					Baby Names
+				</a>
+			</nav>
+		</header>
+		<main id="app" class="container flex-shrink-0" style="max-width: 960px">
+			<section class="container mt-5 text-center">
+				<h1 class="display-4">Baby Names</h1>
+				<p class="lead">
+					This site allows you to view statistics on baby names in New Zealand.
+				</p>
+				<apexchart width="500" type="line" :series="data" />
+				{{data}}
+			</section>
+		</main>
+		<footer class="footer mt-auto py-3 text-center bg-dark text-light">
+			<p>This website was created by <a href="https://mark.honeychurch.org" target="_blank" rel="noopener" class="text-reset">Mark Honeychurch</a></p>
+		</footer>
+	</body>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/vue@3"></script>
+		<!--<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>-->
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-chartjs/4.1.1/index.min.js" integrity="sha512-drlD/4lmrD/m9FcEPFWrfCj3BGy2BSg0cvAmSeaPyk604WErOUJmCYUM3isH1itFhSjNGkvJ7VOBFjeeQLp5tQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
+	<script type="module" src="/index.js"></script>
+</html>
