@@ -25,8 +25,11 @@
 				<p class="lead">
 					This site allows you to view statistics on baby names in New Zealand.
 				</p>
-				<apexchart width="500" type="line" :series="data" />
-				{{data}}
+				<b-form-select v-model.number="year" :options="years"></b-form-select>
+				<ol v-if="names">
+					<li v-for="name in topx">{{name.name}} ({{name.number}})</li>
+				</ol>
+				<!--<apexchart width="500" type="line" :series="data" />-->
 			</section>
 		</main>
 		<footer class="footer mt-auto py-3 text-center bg-dark text-light">
@@ -34,8 +37,10 @@
 		</footer>
 	</body>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
-	<script src="https://unpkg.com/vue@3"></script>
-		<!--<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>-->
+	<!--<script src="https://unpkg.com/vue@2"></script>-->
+	<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+	<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+	<!--<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>-->
 	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-chartjs/4.1.1/index.min.js" integrity="sha512-drlD/4lmrD/m9FcEPFWrfCj3BGy2BSg0cvAmSeaPyk604WErOUJmCYUM3isH1itFhSjNGkvJ7VOBFjeeQLp5tQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
