@@ -11,9 +11,9 @@ const names = records.reduce((names, record) => {
 	return names;
 }, {});
 
-writeFileSync('names.json', JSON.stringify(names));
+writeFileSync('src/assets/names.json', JSON.stringify(names));
 
-const years = [...Array(2021 - 1900).keys()].map((index) => index + 1900);
+/* const years = [...Array(2021 - 1900).keys()].map((index) => index + 1900);
 const yearnames = records.reduce((names, record) => {
 	if (!names[record.Name]) {
 		names[record.Name] = {};
@@ -25,4 +25,4 @@ for (const name of Object.keys(yearnames)) {
 	yearnames[name] = years.map((year) => yearnames[name][year] || 0);
 }
 
-writeFileSync('yearnames.json', JSON.stringify(yearnames));
+writeFileSync('src/assets/yearnames.json', JSON.stringify(yearnames)); */
