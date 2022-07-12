@@ -8,13 +8,14 @@ import 'bootstrap-vue-3/dist/bootstrap-vue-3.css';
 
 import names from './assets/names.json';
 
-const start = 1900;
-const end = 2021;
-
 const app = createApp(App);
 app.use(BootstrapVue3);
-app.config.globalProperties.years = [...Array(end + 1 - start).keys()].map((index) => index + start);
-app.config.globalProperties.names = names;
+app.config.globalProperties.$names = {
+	names,
+	years: (start = 1900, end = 2021) => [...Array(end + 1 - start).keys()].map((index) => index + start),
+	random: () => names[Math.floor(Math.random() * names.length)],
+	top: (year, length = 9999) => Object.keys(names).map((name) => ({name, number: names[name][year] || 0})).sort((a, b) => b.number - a.number).slice(0, length),
+};
 app.config.performance = true;
 // app.use(router);
 app.mount('#app');

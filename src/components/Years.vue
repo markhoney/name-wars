@@ -19,7 +19,7 @@
 		},
 		computed: {
 			years() {
-				return [...Array(this.end + 1 - this.start).keys()].map((index) => index + this.start);
+				return this.$names.years(this.start, this.end);
 			}
 		},
 	};
