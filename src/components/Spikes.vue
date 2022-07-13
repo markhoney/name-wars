@@ -1,27 +1,33 @@
 <template>
-	<b-card>
+	<b-card no-body>
 		<template #header>
 			<h2>{{top}} largest spikes</h2>
 		</template>
-		<b-card-text>
-			<b-form-group label="Average over years" label-for="average">
-				<b-form-select id="average" v-model="average" :options="[1, 2, 3, 4, 5]"></b-form-select>
-			</b-form-group>
-			<b-form-group label="First Year" label-for="first">
-				<years id="first" v-model="first" />
-			</b-form-group>
-			<b-form-group label="Last Year" label-for="last">
-				<years id="last" v-model="last" />
-			</b-form-group>
-			<b-form-group label="Number of results" label-for="top">
-				<b-form-select id="top" v-model="top" :options="[10, 25, 50, 100]"></b-form-select>
-			</b-form-group>
-			<b-list-group>
-				<b-list-group-item v-for="spike in largest" :key="spike.name + spike.year" :variant="spike.diff > 0 ? 'success' : 'danger'" class="d-flex justify-content-between align-items-center">
-					{{spike.name}} ({{spike.year}}) <b-badge :variant="spike.diff > 0 ? 'success' : 'danger'" pill>{{spike.diff}}</b-badge>
-				</b-list-group-item>
-			</b-list-group>
-		</b-card-text>
+		<b-list-group flush>
+			<b-list-group-item v-for="spike in largest" :key="spike.name + spike.year" :variant="spike.diff > 0 ? 'success' : 'danger'" class="d-flex justify-content-between align-items-center">
+				{{spike.name}} ({{spike.year}}) <b-badge :variant="spike.diff > 0 ? 'success' : 'danger'" pill>{{spike.diff}}</b-badge>
+			</b-list-group-item>
+		</b-list-group>
+		<template #footer>
+			<b-row>
+				<b-col sm="6">
+					<b-form-group label="First Year" label-for="first">
+						<years id="first" v-model="first" />
+					</b-form-group>
+					<b-form-group label="Last Year" label-for="last">
+						<years id="last" v-model="last" />
+					</b-form-group>
+				</b-col>
+				<b-col sm="6">
+					<b-form-group label="Number of results" label-for="top">
+						<b-form-select id="top" v-model="top" :options="[10, 25, 50, 100]"></b-form-select>
+					</b-form-group>
+					<b-form-group label="Average over years" label-for="average">
+						<b-form-select id="average" v-model="average" :options="[1, 2, 3, 4, 5]"></b-form-select>
+					</b-form-group>
+				</b-col>
+			</b-row>
+		</template>
 	</b-card>
 </template>
 
