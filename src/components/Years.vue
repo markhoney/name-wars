@@ -4,12 +4,10 @@
 			start: {
 				type: Number,
 				default: 1900,
-				required: true,
 			},
 			end: {
 				type: Number,
 				default: 2021,
-				required: true,
 			},
 			modelValue: {
 				type: Number,

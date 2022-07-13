@@ -16,8 +16,10 @@
 		"vue-router": "^4.1.2"
 	},
 	"devDependencies": {
+		"apexcharts": "^3.35.3",
 		"chart.js": "^3.8.0",
 		"csv-parse": "^5.2.2",
-		"vue-chart-3": "^3.1.8"
+		"vue-chart-3": "^3.1.8",
+		"vue3-apexcharts": "^1.4.1"
 	}
 }

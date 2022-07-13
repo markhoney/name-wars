@@ -6,10 +6,14 @@ import App from './App.vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css';
 
+import VueApexCharts from "vue3-apexcharts";
+
+
 import names from './assets/names.json';
 
 const app = createApp(App);
 app.use(BootstrapVue3);
+app.use(VueApexCharts);
 app.config.globalProperties.$names = {
 	names,
 	years: (start = 1900, end = 2021) => [...Array(end + 1 - start).keys()].map((index) => index + start),
