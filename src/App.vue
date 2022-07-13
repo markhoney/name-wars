@@ -5,8 +5,16 @@
 </script>
 
 <template>
-	<top class="w-50 m-4" />
-	<compare />
-	<spikes />
+	<b-container class="my-5">
+		<compare />
+		<b-row>
+			<b-col sm="6">
+				<top />
+			</b-col>
+			<b-col sm="6">
+				<spikes />
+			</b-col>
+		</b-row>
+	</b-container>
 	<!--<router-view></router-view>-->
 </template>

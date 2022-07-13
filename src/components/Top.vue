@@ -20,7 +20,7 @@
 <template>
 	<b-card>
 		<template #header>
-			Top {{top}}
+			<h2>Top {{top}} names for {{year}}</h2>
 		</template>
 		<b-card-text>
 			<ol v-if="names">
@@ -28,7 +28,12 @@
 			</ol>
 		</b-card-text>
 		<template #footer>
-			<years v-model="year" :start="1900" :end="2021" />
+			<b-form-group label="Number of Results" label-for="top">
+				<b-form-select id="top" v-model="top" :options="[10, 25, 50, 100]"></b-form-select>
+			</b-form-group>
+			<b-form-group label="Year" label-for="year">
+				<years id="year" v-model="year" :start="1900" :end="2021" />
+			</b-form-group>
 		</template>
 	</b-card>
 </template>
