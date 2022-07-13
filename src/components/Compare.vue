@@ -5,7 +5,7 @@
 </template>
 
 <script>
-	import Names from './Names.vue';
+	import Names from './NameText.vue';
 	import {Chart, registerables} from 'chart.js';
 	Chart.register(...registerables);
 	import {LineChart} from 'vue-chart-3';
@@ -35,8 +35,9 @@
 			chartData() {
 				return {
 					labels: this.years,
-					datasets: [this.first, this.second].map((name) => ({
+					datasets: [this.first, this.second].filter(Boolean).map((name) => ({
 						label: name,
+						backgroundColor: '#' + Math.floor(Math.random() * 16777215).toString(16),
 						data: this.$names.names[name] ? this.years.map((year) => this.$names.names[name][year] || 0) : [],
 					})),
 				};
