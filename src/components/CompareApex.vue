@@ -1,41 +1,50 @@
 <template>
-	<b-row>
-		<b-col sm="4">
-			<!--<names v-model="second" />-->
-			<b-card>
-				<template #header>
-					<h2>Compare names</h2>
-				</template>
-				<b-card-text>
-					<b-form-group label="Names to compare" label-for="names">
-						<names id="names" v-model="names" />
-					</b-form-group>
-					<b-form-group label="First Year" label-for="first">
-						<years id="first" v-model="first" />
-					</b-form-group>
-					<b-form-group label="Last Year" label-for="last">
-						<years id="last" v-model="last" />
-					</b-form-group>
-				</b-card-text>
-			</b-card>
-		</b-col>
-		<b-col sm="8">
-			<vue-apex-charts type="line" :series="series" :options="chartOptions" />
-		</b-col>
-	</b-row>
+	<b-col sm="12" lg="9">
+		<vue-apex-charts type="line" :series="series" :options="chartOptions" />
+	</b-col>
+	<b-col sm="6" lg="3">
+		<!--<names v-model="second" />-->
+		<b-card>
+			<template #header>
+				<h2>Compare names</h2>
+			</template>
+			<b-card-text>
+				<b-form-group label="Names to compare" label-for="names">
+					<names id="names" v-model="nameList" :names="names" />
+				</b-form-group>
+				<b-form-group label="First Year" label-for="first">
+					<years id="first" v-model="first" />
+				</b-form-group>
+				<b-form-group label="Last Year" label-for="last">
+					<years id="last" v-model="last" />
+				</b-form-group>
+			</b-card-text>
+		</b-card>
+	</b-col>
+	<b-col sm="6" lg="4">
+		<interesting @input="names = $event" />
+	</b-col>
 </template>
 
 <script>
 	import Names from './NamesText.vue';
 	import Years from './Years.vue';
+	import Interesting from './Interesting.vue';
 	import VueApexCharts from "vue3-apexcharts";
 	export default {
-		components: {Names, Years, VueApexCharts},
+		components: {Names, Years, Interesting, VueApexCharts},
+		props: {
+			value: {
+				type: String,
+				default: '',
+			},
+		},
 		data() {
 			return {
 				first: 1900,
 				last: 2021,
-				names: [],
+				nameList: [],
+				names: '',
 				colours: ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'],
 			};
 		},
@@ -51,13 +60,18 @@
 				};
 			},
 			series() {
-				return this.names.map((name, index) => ({
+				return this.nameList.map((name, index) => ({
 					// label: name,
 					// backgroundColor: '#' + Math.floor(Math.random() * 16777215).toString(16),
 					// backgroundColor: this.colours[index],
 					name,
 					data: this.$names.names[name] ? this.years.map((year) => this.$names.names[name][year] || 0) : [],
 				}));
+			},
+		},
+		watch: {
+			value(value) {
+				this.names = value;
 			},
 		},
 	};

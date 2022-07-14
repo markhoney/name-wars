@@ -1,7 +1,7 @@
 <template>
 	<b-card no-body>
 		<template #header>
-			<h2>{{top}} largest jumps</h2>
+			<h2>{{top}} largest changes</h2>
 		</template>
 		<b-list-group flush>
 			<b-list-group-item v-for="spike in largest" :key="spike.name + spike.year" :variant="spike.diff > 0 ? 'success' : 'danger'" class="d-flex justify-content-between align-items-center">

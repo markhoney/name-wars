@@ -9,6 +9,10 @@
 				type: Boolean,
 				default: true,
 			},
+			names: {
+				type: String,
+				default: '',
+			}
 		},
 		methods: {
 			onInput(value) {
@@ -23,9 +27,14 @@
 				// this.$emit('input', names);
 			},
 		},
+		watch: {
+			names(names) {
+				this.onInput(names);
+			},
+		},
 	};
 </script>
 
 <template>
-	<b-form-input type="text" @input="onInput" />
+	<b-form-input :value="names" type="text" @input="onInput" @change="onInput" />
 </template>
