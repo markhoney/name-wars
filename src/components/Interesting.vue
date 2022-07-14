@@ -22,6 +22,7 @@
 				names: {
 					Aaliyah: 'Music (1994)',
 					Arya: 'TV - Game of Thrones (2011)',
+					Daniel: 'Music - Daniel by Elton John (1973)',
 					Harper: 'Author - Go Set a Watchman (2015)',
 					Jason: 'Movie - Jason and the Argonauts (1963)',
 					Juno: 'Movie - Juno (2007)',
