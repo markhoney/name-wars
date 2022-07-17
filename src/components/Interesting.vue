@@ -26,10 +26,14 @@
 					Harper: 'Author - Go Set a Watchman (2015)',
 					Jason: 'Movie - Jason and the Argonauts (1963)',
 					Juno: 'Movie - Juno (2007)',
+					Kylo: 'Movie - The Force Awakens (2015)',
 					Leonidas: 'Movie - 300 (2006)',
 					Luke: 'Movie - Star Wars (1977)',
 					Marshall: 'Music - Eminem (1999)',
 				},
+				groups: [
+					'January February March April May June July August September October November December',
+				]
 			};
 		},
 		methods: {

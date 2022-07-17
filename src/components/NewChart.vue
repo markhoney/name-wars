@@ -1,17 +1,13 @@
 <template>
 	<b-col sm="12" lg="9">
-		<vue-apex-charts type="line" :series="series" :options="chartOptions" />
+		<vue-apex-charts type="bar" :series="series" :options="chartOptions" />
 	</b-col>
 	<b-col sm="6" lg="3">
-		<!--<names v-model="second" />-->
 		<b-card>
 			<template #header>
-				<h2>Compare names</h2>
+				<h2>New names</h2>
 			</template>
 			<b-card-text>
-				<b-form-group label="Names to compare" label-for="names">
-					<names id="names" v-model="nameList" :names="names" placeholder="e.g. Luke Leia" />
-				</b-form-group>
 				<b-form-group label="First Year" label-for="first">
 					<years id="first" v-model="first" />
 				</b-form-group>
@@ -22,17 +18,16 @@
 		</b-card>
 	</b-col>
 	<b-col sm="6" lg="4">
-		<interesting @input="names = $event" />
+		<new v-model="year" />
 	</b-col>
 </template>
 
 <script>
-	import Names from './NamesText.vue';
+	import New from './New.vue';
 	import Years from './Years.vue';
-	import Interesting from './Interesting.vue';
 	import VueApexCharts from "vue3-apexcharts";
 	export default {
-		components: {Names, Years, Interesting, VueApexCharts},
+		components: {New, Years, VueApexCharts},
 		props: {
 			value: {
 				type: String,
@@ -41,11 +36,9 @@
 		},
 		data() {
 			return {
-				first: 1900,
+				first: 1901,
 				last: 2021,
-				nameList: [],
-				names: '',
-				colours: ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'],
+				year: 2021,
 			};
 		},
 		computed: {
@@ -54,17 +47,17 @@
 			},
 			chartOptions() {
 				return {
-					colors: this.colours,
+					colors: ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'],
 					xaxis: {
 						categories: this.years,
 					},
 				};
 			},
 			series() {
-				return this.nameList.map((name, index) => ({
-					name,
-					data: this.$names.names[name] ? this.years.map((year) => (this.$names.names[name][year]?.M || 0) + (this.$names.names[name][year]?.F || 0)) : [],
-				}));
+				return [{
+					name: 'New names',
+					data: this.years.map((year) => this.$names.new[year].length),
+				}];
 			},
 		},
 		methods: {

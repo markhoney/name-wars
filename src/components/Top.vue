@@ -6,7 +6,6 @@
 			return {
 				year: 2021,
 				top: 10,
-				name: '',
 			};
 		},
 		computed: {

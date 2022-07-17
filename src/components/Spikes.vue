@@ -5,7 +5,7 @@
 		</template>
 		<b-list-group flush>
 			<b-list-group-item v-for="spike in largest" :key="spike.name + spike.year" :variant="spike.diff > 0 ? 'success' : 'danger'" class="d-flex justify-content-between align-items-center">
-				{{spike.name}} ({{spike.year}}) <b-badge :variant="spike.diff > 0 ? 'success' : 'danger'" pill>{{spike.diff}}</b-badge>
+				{{spike.name}} ({{spike.year}}) <b-badge :variant="spike.diff > 0 ? 'success' : 'danger'" pill><template v-if="spike.diff > 0">+</template>{{spike.diff}}</b-badge>
 			</b-list-group-item>
 		</b-list-group>
 		<template #footer>
@@ -52,7 +52,7 @@
 					names[name] = this.years.slice(this.average).reduce((allyears, year) => {
 						const yearrange = this.$names.years(year - this.average + 1, year).reverse();
 						let diff = 0;
-						for (const year of yearrange) diff += (years[year] || 0) - (years[year - 1] || 0);
+						for (const year of yearrange) diff += (years[year]?.M || 0) + (years[year]?.F || 0) - (years[year - 1]?.M || 0) - (years[year - 1]?.F || 0);
 						allyears[year] = Math.floor(diff / this.average);
 						return allyears;
 					}, {});
