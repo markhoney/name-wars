@@ -21,9 +21,6 @@
 			</b-card-text>
 		</b-card>
 	</b-col>
-	<b-col sm="6" lg="4">
-		<interesting @input="names = $event" />
-	</b-col>
 </template>
 
 <script>
@@ -56,6 +53,7 @@
 				return {
 					colors: this.colours,
 					xaxis: {
+						type: 'numeric',
 						categories: this.years,
 					},
 				};
