@@ -7,6 +7,7 @@
 		"import": "node process",
 		"dev": "vite",
 		"build": "vite build",
+		"ssg": "vite-ssg build",
 		"preview": "vite preview"
 	},
 	"dependencies": {
@@ -17,10 +18,13 @@
 		"vue": "^3.2.25"
 	},
 	"devDependencies": {
+		"@vueuse/head": "^0.7.6",
 		"apexcharts": "^3.35.3",
 		"chart.js": "^3.8.0",
 		"csv-parse": "^5.2.2",
 		"vite-plugin-pages": "^0.25.0",
+		"vite-plugin-pages-sitemap": "^1.2.2",
+		"vite-ssg": "^0.20.2",
 		"vue-chart-3": "^3.1.8",
 		"vue-router": "^4.1.2",
 		"vue3-apexcharts": "^1.4.1"

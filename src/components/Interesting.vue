@@ -30,6 +30,7 @@
 					Leonidas: 'Movie - 300 (2006)',
 					Luke: 'Movie - Star Wars (1977)',
 					Marshall: 'Music - Eminem (1999)',
+					'Darren Darrin': 'TV - Bewitched (1964)',
 				},
 				groups: [
 					'January February March April May June July August September October November December',

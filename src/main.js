@@ -1,7 +1,8 @@
 import {createApp} from 'vue';
+// import {ViteSSG} from 'vite-ssg';
 import BootstrapVue3 from 'bootstrap-vue-3';
 import App from './App.vue';
-// import {router} from './router.js';
+import router from './router.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css';
@@ -15,6 +16,7 @@ const years = (start = 1900, end = 2021) => [...Array(end + 1 - start).keys()].m
 // import newnames from './assets/newnames.json';
 
 const app = createApp(App);
+// const app = ViteSSG(App, {routes: router.routes});
 app.use(BootstrapVue3);
 app.use(VueApexCharts);
 app.config.globalProperties.$names = {
@@ -34,5 +36,6 @@ app.config.globalProperties.$names = {
 	top: (year, length = 9999) => Object.keys(names).map((name) => ({name, number: (names[name][year]?.M || 0) + (names[name][year]?.F || 0)})).sort((a, b) => b.number - a.number).slice(0, length),
 };
 app.config.performance = true;
-// app.use(router);
-app.mount('#app');
+app.use(router);
+app.mount('body');
+// app.mount('#app');
