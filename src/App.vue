@@ -14,6 +14,9 @@
 						<router-link class="nav-link" to="/new">New</router-link>
 					</li>
 					<li class="nav-item">
+						<router-link class="nav-link" to="/popular">Popular</router-link>
+					</li>
+					<li class="nav-item">
 						<router-link class="nav-link" to="/charts">Charts</router-link>
 					</li>
 					<li class="nav-item">

@@ -86,7 +86,7 @@
 			},
 			secondSeries() {
 				return [{
-					name: 'New names',
+					name: 'Unique names',
 					data: this.years.map((year) => Object.values(this.$names.names).filter((name) => name[year]).length),
 				}];
 			},

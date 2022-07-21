@@ -68,8 +68,11 @@
 			series() {
 				if (!this.popular) return [];
 				return [{
-					name: 'New names',
-					data: this.years.map((year) => this.popular.find((pop) => year === pop.year).number),
+					name: 'Most popular',
+					data: this.years.map((year) => {
+						const name = this.popular.find((popular) => year === popular.year);
+						return {x: name.name, y: name.number};
+					}),
 				}];
 			},
 		},
