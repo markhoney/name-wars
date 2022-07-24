@@ -1,3 +1,7 @@
+<template>
+	<input type="text" :modelValue="modelValue" @input="$emit('update:modelValue', $event.target.value.trim())">
+</template>
+
 <script>
 	export default {
 		props: {
@@ -9,7 +13,3 @@
 		},
 	};
 </script>
-
-<template>
-	<input type="text" :modelValue="modelValue" @input="$emit('update:modelValue', $event.target.value.trim())">
-</template>

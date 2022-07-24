@@ -1,3 +1,7 @@
+<template>
+	<b-form-select :modelValue="modelValue" :options="names" @input="$emit('update:modelValue', $event)"></b-form-select>
+</template>
+
 <script>
 	export default {
 		props: {
@@ -20,7 +24,3 @@
 		},
 	};
 </script>
-
-<template>
-	<b-form-select :modelValue="modelValue" :options="names" @input="$emit('update:modelValue', $event)"></b-form-select>
-</template>

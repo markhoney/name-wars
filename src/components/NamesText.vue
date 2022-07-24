@@ -28,8 +28,11 @@
 			},
 		},
 		watch: {
-			names(names) {
-				this.onInput(names);
+			names: {
+				immediate: true,
+				handler(names) {
+					this.onInput(names);
+				},
 			},
 		},
 	};

@@ -19,6 +19,12 @@ export default {
 			random: () => names[Math.floor(Math.random() * names.length)],
 			top: (year, length = 9999) => Object.keys(names).map((name) => ({name, number: (names[name][year]?.M || 0) + (names[name][year]?.F || 0)})).sort((a, b) => b.number - a.number).slice(0, length),
 			overall: (length = 9999) => Object.keys(names).map((name) => ({name, number: Object.values(names[name]).reduce((sum, year) => sum + (year.M || 0) + (year.F || 0), 0)})).sort((a, b) => b.number - a.number).slice(0, length),
+			ordinal: (number) => {
+				const s = ["th", "st", "nd", "rd"];
+				const v = number % 100;
+				return number + (s[(v - 20) % 10] || s[v] || s[0]);
+			}
+
 		};
 	},
 };

@@ -3,7 +3,6 @@
 		<vue-apex-charts type="line" :series="series" :options="chartOptions" />
 	</b-col>
 	<b-col sm="6" lg="3">
-		<!--<names v-model="second" />-->
 		<b-card>
 			<template #header>
 				<h2>Compare names</h2>
@@ -26,10 +25,9 @@
 <script>
 	import Names from './NamesText.vue';
 	import Years from './Years.vue';
-	import Interesting from './Interesting.vue';
 	import VueApexCharts from "vue3-apexcharts";
 	export default {
-		components: {Names, Years, Interesting, VueApexCharts},
+		components: {Names, Years, VueApexCharts},
 		props: {
 			value: {
 				type: String,
@@ -41,7 +39,7 @@
 				first: 1900,
 				last: 2021,
 				nameList: [],
-				names: '',
+				names: 'Luke Leia',
 				colours: ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'],
 			};
 		},
