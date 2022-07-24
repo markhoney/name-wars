@@ -34,6 +34,12 @@
 				default: '',
 			},
 		},
+		data() {
+			return {
+				first: 1901,
+				last: 2021,
+			};
+		},
 		computed: {
 			years() {
 				return this.$names.years(this.first, this.last);
@@ -71,7 +77,8 @@
 					name: 'Most popular',
 					data: this.years.map((year) => {
 						const name = this.popular.find((popular) => year === popular.year);
-						return {x: name.name, y: name.number};
+						return name.number;
+						// return {x: name.name, y: name.number};
 					}),
 				}];
 			},

@@ -18,13 +18,13 @@
 				<b-form-group label="Last Year" label-for="last">
 					<years id="last" v-model="last" />
 				</b-form-group>
-				<b-form-group label="Chart Type" label-for="type">
-					<b-form-select id="type" v-model="type" :options="['Bar', 'Bar Stacked']" />
+				<b-form-group label="Stacked" label-for="stacked">
+					<b-form-checkbox id="stacked" size="lg" v-model="stacked" switch />
 				</b-form-group>
 			</b-card-text>
 		</b-card>
 	<b-col cols="12">
-		<vue-apex-charts :type="type.split(' ')[0].toLowerCase()" :series="series" :options="chartOptions" />
+		<vue-apex-charts type="bar" :series="series" :options="chartOptions" />
 	</b-col>
 	</b-col>
 </template>
@@ -44,8 +44,8 @@
 			return {
 				first: 1900,
 				last: 2021,
-				name: '',
-				type: 'Bar Stacked',
+				name: 'Alex',
+				stacked: true,
 			};
 		},
 		computed: {
@@ -58,7 +58,7 @@
 			chartOptions() {
 				return {
 					chart: {
-						stacked: !!this.type.split(' ')[1],
+						stacked: this.stacked,
 					},
 					/* zoom: {
 						type: 'x',

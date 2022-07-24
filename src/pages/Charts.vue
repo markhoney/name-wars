@@ -1,8 +1,9 @@
 <script>
 	import Top from '../components/Top.vue';
+	import Totals from '../components/Totals.vue';
 	import Spikes from '../components/Spikes.vue';
 	export default {
-		components: {Top, Spikes},
+		components: {Top, Totals, Spikes},
 	};
 </script>
 
@@ -13,6 +14,9 @@
 	</b-col>
 	<b-col sm="6" lg="4">
 		<top />
+	</b-col>
+	<b-col sm="6" lg="4">
+		<totals />
 	</b-col>
 	<b-col sm="6" lg="4">
 		<spikes />
