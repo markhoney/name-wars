@@ -1,6 +1,6 @@
 <template>
 	<b-col sm="12" lg="9">
-		<vue-apex-charts type="line" :series="series" :options="chartOptions" />
+		<vue-apex-charts type="bar" :series="series" :options="chartOptions" />
 	</b-col>
 	<b-col sm="6" lg="3">
 		<b-card>
@@ -40,7 +40,6 @@
 				last: 2021,
 				nameList: [],
 				names: 'Luke Leia',
-				colours: ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'],
 			};
 		},
 		computed: {
@@ -49,7 +48,7 @@
 			},
 			chartOptions() {
 				return {
-					colors: this.colours,
+					colors: this.$names.colours,
 					xaxis: {
 						type: 'numeric',
 						categories: this.years,

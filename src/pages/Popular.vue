@@ -1,26 +1,28 @@
 <template>
-	<b-col cols="12" class="mb-5">
-		<h2>Polular Names</h2>
-		<p>Below is a graph showing how many times the most popular name was used in each year.</p>
-	</b-col>
-	<b-col cols="12">
-		<b-card>
-			<template #header>
-				<h2>Chart options</h2>
-			</template>
-			<b-card-text class="d-flex justify-content-evenly">
-				<b-form-group label="First Year" label-for="first">
-					<years id="first" v-model="first" />
-				</b-form-group>
-				<b-form-group label="Last Year" label-for="last">
-					<years id="last" v-model="last" />
-				</b-form-group>
-			</b-card-text>
-		</b-card>
-	</b-col>
-	<b-col cols="12">
-		<vue-apex-charts type="bar" :series="series" :options="chartOptions" />
-	</b-col>
+	<b-row>
+		<b-col cols="12" class="mb-5">
+			<h2>Popular Names</h2>
+			<p>Below is a graph showing how many times the most popular name was used in each year.</p>
+		</b-col>
+		<b-col cols="12">
+			<b-card>
+				<template #header>
+					<h2>Chart options</h2>
+				</template>
+				<b-card-text class="d-flex justify-content-evenly">
+					<b-form-group label="First Year" label-for="first">
+						<years id="first" v-model="first" />
+					</b-form-group>
+					<b-form-group label="Last Year" label-for="last">
+						<years id="last" v-model="last" />
+					</b-form-group>
+				</b-card-text>
+			</b-card>
+		</b-col>
+		<b-col cols="12">
+			<vue-apex-charts type="bar" :series="series" :options="chartOptions" />
+		</b-col>
+	</b-row>
 </template>
 
 <script>
@@ -60,7 +62,7 @@
 			},
 			chartOptions() {
 				return {
-					colors: ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'],
+					colors: this.$names.colours,
 					xaxis: {
 						type: 'numeric',
 						categories: this.years,

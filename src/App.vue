@@ -26,13 +26,9 @@
 			</div>
 		</div>
 	</nav>
-	<main class="container flex-shrink-0 py-5" style="max-width: 1280px">
-		<b-container>
-			<b-row>
-				<router-view></router-view>
-			</b-row>
-		</b-container>
-	</main>
+	<b-container class="flex-shrink-0 py-5" style="max-width: 1280px">
+		<router-view></router-view>
+	</b-container>
 	<footer class="footer mt-auto py-3 text-center bg-dark text-light">
 		<p>This website was created by <a href="https://mark.honeychurch.org" target="_blank" rel="noopener" class="text-reset">Mark Honeychurch</a></p>
 	</footer>

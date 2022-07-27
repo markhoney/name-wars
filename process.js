@@ -24,7 +24,10 @@ const fix = {
 	'N�kau': 'Nīkau',
 };
 
+const yearList = [];
+
 const names = records.reduce((names, record) => {
+	if (!yearList.find((year) => year === parseInt(record.Year))) yearList.push(parseInt(record.Year));
 	const name = fix[record.Name] || record.Name;
 	if (!names[name]) {
 		names[name] = {};
@@ -34,6 +37,17 @@ const names = records.reduce((names, record) => {
 	return names;
 }, {});
 writeFileSync('src/assets/names.json', JSON.stringify(names));
+
+const nameArray = Object.entries(names).map(([name, years]) => ({
+	name,
+	years: yearList.sort().map((year) => ({
+		year,
+		male: years[year]?.M || 0,
+		female: years[year]?.F || 0,
+		total: (years[year]?.M || 0) + (years[year]?.F || 0),
+	})),
+}));
+writeFileSync('src/assets/nameArray.json', JSON.stringify(nameArray));
 
 /*
 const androgynous = Object.keys(names).filter((name) => Object.values(names[name]).find((year) => year.M) && Object.values(names[name]).find((year) => year.F));

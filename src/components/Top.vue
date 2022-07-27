@@ -10,7 +10,7 @@
 		},
 		computed: {
 			names() {
-				return this.$names.top(this.year, this.top);
+				return this.$names.top(this.year).slice(0, this.top);
 			},
 		},
 	};

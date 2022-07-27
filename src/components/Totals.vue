@@ -26,7 +26,7 @@
 		},
 		computed: {
 			names() {
-				return this.$names.overall(this.top);
+				return this.$names.overall.slice(0, this.top);
 			},
 		},
 	};
