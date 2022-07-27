@@ -1,6 +1,6 @@
 <template>
 	<b-col sm="12" lg="9">
-		<vue-apex-charts type="bar" :series="series" :options="chartOptions" />
+		<vue-apex-charts type="line" :series="series" :options="chartOptions" :key="series.length" />
 	</b-col>
 	<b-col sm="6" lg="3">
 		<b-card>

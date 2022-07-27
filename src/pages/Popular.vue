@@ -2,7 +2,7 @@
 	<b-row>
 		<b-col cols="12" class="mb-5">
 			<h2>Popular Names</h2>
-			<p>Below is a graph showing how many times the most popular name was used in each year.</p>
+			<p>Below is a graph showing how many times the most popular name was used in each year. Hover over the chart to see the most popular name for each year, and the number of babies given that name in the year.</p>
 		</b-col>
 		<b-col cols="12">
 			<b-card>
@@ -69,18 +69,29 @@
 						title: {text: 'Year'},
 					},
 					yaxis: {
-						title: {text: 'Most popular name'},
+						title: {text: 'Number of Babies'},
+					},
+					dataLabels: {
+						enabled: false,
+					},
+					tooltip: {
+						y: {
+							title: '',
+						},
+						z: {
+							title: 'Name:',
+						},
 					},
 				};
 			},
 			series() {
 				if (!this.popular) return [];
 				return [{
-					name: 'Most popular',
+					name: 'Number of Babies:',
 					data: this.years.map((year) => {
 						const name = this.popular.find((popular) => year === popular.year);
-						return name.number;
-						// return {x: name.name, y: name.number};
+						// return name.number;
+						return {x: year, y: name.number, z: name.name};
 					}),
 				}];
 			},

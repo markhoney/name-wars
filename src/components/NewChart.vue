@@ -42,7 +42,7 @@
 							formatter(value) {
 								return value.join('<br />');
 							},
-						}
+						},
 					},
 				};
 			},
