@@ -23,7 +23,7 @@
 			</b-card>
 		</b-col>
 		<b-col cols="12">
-			<vue-apex-charts type="line" :series="series" :options="chartOptions" />
+			<vue-apex-charts type="line" :series="series" :options="chartOptions" :key="series.length" />
 		</b-col>
 	</b-row>
 </template>
