@@ -1,7 +1,7 @@
 import {readFileSync, writeFileSync} from 'fs';
 import {parse} from 'csv-parse/sync';
 
-const records = parse(readFileSync('baby-names-2022-01-07.csv'), {columns: true, skip_empty_lines: true});
+const records = parse(readFileSync('baby-names-2023-01-09.csv'), {columns: true, skip_empty_lines: true});
 
 /* const names = records.reduce((names, record) => {
 	if (!names[record.Name]) {
