@@ -18,7 +18,7 @@
 <template>
 	<b-card no-body>
 		<template #header>
-			<h2>New names in <years v-model="year" :start="1900" :end="2021" /></h2>
+			<h2>New names in <years v-model="year" :start="1900" :end="2022" /></h2>
 		</template>
 		<b-list-group flush v-if="names" style="max-height: 80vh; overflow: scroll">
 			<b-list-group-item v-for="name in names" :key="name" class="d-flex justify-content-between align-items-center">
@@ -29,7 +29,7 @@
 			<b-row>
 				<b-col>
 					<b-form-group label="Year" label-for="year">
-						<years id="year" v-model="year" :start="1900" :end="2021" />
+						<years id="year" v-model="year" :start="1900" :end="2022" />
 					</b-form-group>
 				</b-col>
 			</b-row>

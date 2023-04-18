@@ -31,7 +31,7 @@
 			<b-row>
 				<b-col sm="6">
 					<b-form-group label="Year" label-for="year">
-						<years id="year" v-model="year" :start="1900" :end="2021" />
+						<years id="year" v-model="year" :start="1900" :end="2022" />
 					</b-form-group>
 				</b-col>
 				<b-col sm="6">
