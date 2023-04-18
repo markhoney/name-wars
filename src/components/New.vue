@@ -4,7 +4,7 @@
 		components: {Years},
 		data() {
 			return {
-				year: 2021,
+				year: 2022,
 			};
 		},
 		computed: {

@@ -1,7 +1,7 @@
 const names = fetch('/names.json');
 
 exports.names = names;
-exports.years = (start = 1900, end = 2021) => [...Array(end + 1 - start).keys()].map((index) => index + start);
+exports.years = (start = 1900, end = 2022) => [...Array(end + 1 - start).keys()].map((index) => index + start);
 exports.new = exports.years().reduce((years, year) => {
 	years[year] = [];
 	for (const name of Object.keys(names)) {

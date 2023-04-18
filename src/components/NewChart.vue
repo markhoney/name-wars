@@ -9,7 +9,7 @@
 		data() {
 			return {
 				first: 1901,
-				last: 2021,
+				last: 2022,
 			};
 		},
 		computed: {

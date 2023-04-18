@@ -2,7 +2,7 @@ import names from '../assets/names.json';
 
 const years = {
 	first: 1900,
-	last: 2021,
+	last: 2022,
 };
 
 const yearList = (first = years.first, last = years.last) => [...Array(last + 1 - first).keys()].map((index) => index + first);
