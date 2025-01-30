@@ -7,11 +7,11 @@
 			},
 			end: {
 				type: Number,
-				default: 2022,
+				default: 2024,
 			},
 			modelValue: {
 				type: Number,
-				default: 2022,
+				default: 2024,
 				required: true,
 			},
 		},

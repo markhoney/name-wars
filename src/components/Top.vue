@@ -4,7 +4,7 @@
 		components: {Years},
 		data() {
 			return {
-				year: 2022,
+				year: 2024,
 				top: 10,
 			};
 		},
@@ -31,7 +31,7 @@
 			<b-row>
 				<b-col sm="6">
 					<b-form-group label="Year" label-for="year">
-						<years id="year" v-model="year" :start="1900" :end="2022" />
+						<years id="year" v-model="year" :start="1900" :end="2024" />
 					</b-form-group>
 				</b-col>
 				<b-col sm="6">

@@ -7,7 +7,7 @@
 		props: {
 			year: {
 				type: Number,
-				// default: 2022,
+				// default: 2024,
 				// required: false,
 			},
 			modelValue: {

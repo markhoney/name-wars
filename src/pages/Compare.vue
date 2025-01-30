@@ -43,7 +43,7 @@
 		data() {
 			return {
 				first: 1900,
-				last: 2022,
+				last: 2024,
 				nameList: [],
 				names: 'Luke Leia',
 			};
