@@ -1,7 +1,7 @@
 import {readFileSync, writeFileSync} from 'fs';
 import {parse} from 'csv-parse/sync';
 
-const records = parse(readFileSync('baby-names-2025-01-06.csv'), {columns: true, skip_empty_lines: true});
+const records = parse(readFileSync('baby-names-1900-to-2025.csv'), {columns: true, skip_empty_lines: true});
 
 /* const names = records.reduce((names, record) => {
 	if (!names[record.Name]) {
@@ -24,6 +24,12 @@ const fix = {
 	'N�kau': 'Nīkau',
 	'?io': 'Āio',
 	'?ria': 'Āria',
+	'Bj�rn': 'Björn',
+	'M?hina': 'Māhina',
+	'M?ia': 'Māia',
+	'N?kau': 'Nīkau',
+
+
 };
 
 const yearList = [];
@@ -38,7 +44,13 @@ const names = records.reduce((names, record) => {
 	names[name][parseInt(record.Year)][record.Sex] = parseInt(record.Count);
 	return names;
 }, {});
-writeFileSync('src/assets/names.json', JSON.stringify(names));
+writeFileSync('src/assets/names.json', JSON.stringify(names, null, '\t'));
+
+const config = {
+	first: Math.min(...yearList),
+	last: Math.max(...yearList),
+};
+writeFileSync('src/assets/config.json', JSON.stringify(config, null, '\t'));
 
 const nameArray = Object.entries(names).map(([name, years]) => ({
 	name,
@@ -49,11 +61,11 @@ const nameArray = Object.entries(names).map(([name, years]) => ({
 		total: (years[year]?.M || 0) + (years[year]?.F || 0),
 	})),
 }));
-writeFileSync('src/assets/nameArray.json', JSON.stringify(nameArray));
+writeFileSync('src/assets/nameArray.json', JSON.stringify(nameArray, null, '\t'));
 
 /*
 const androgynous = Object.keys(names).filter((name) => Object.values(names[name]).find((year) => year.M) && Object.values(names[name]).find((year) => year.F));
-writeFileSync('src/assets/androgynous.json', JSON.stringify(androgynous));
+writeFileSync('src/assets/androgynous.json', JSON.stringify(androgynous, null, '\t'));
 */
 
 /* const newnames = [...Array(2022 - 1900).keys()].map((index) => index + 1900).reduce((years, year) => {

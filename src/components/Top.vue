@@ -4,7 +4,7 @@
 		components: {Years},
 		data() {
 			return {
-				year: 2024,
+				year: this.$names.last,
 				top: 10,
 			};
 		},
@@ -19,11 +19,11 @@
 <template>
 	<b-card no-body>
 		<template #header>
-			<h2>Top {{top}} names for {{year}}</h2>
+			<h2>Top {{top}} names of {{year}}</h2>
 		</template>
 		<b-list-group flush v-if="names">
 			<b-list-group-item v-for="(name, index) in names" :key="name.name" class="d-flex justify-content-between align-items-center">
-				{{index + 1}}. {{name.name}}
+				{{index + 1}}. <a :href="`/name/${name.name}`">{{name.name}}</a>
 				<b-badge pill>{{name.number}}</b-badge>
 			</b-list-group-item>
 		</b-list-group>
@@ -31,7 +31,7 @@
 			<b-row>
 				<b-col sm="6">
 					<b-form-group label="Year" label-for="year">
-						<years id="year" v-model="year" :start="1900" :end="2024" />
+						<years id="year" v-model="year" />
 					</b-form-group>
 				</b-col>
 				<b-col sm="6">

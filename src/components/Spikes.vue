@@ -37,8 +37,8 @@
 		components: {Years},
 		data() {
 			return {
-				first: 1900,
-				last: 2024,
+				first: this.$names.first,
+				last: this.$names.last,
 				average: 1,
 				top: 10,
 			};

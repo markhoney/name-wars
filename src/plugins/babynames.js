@@ -1,9 +1,7 @@
 import names from '../assets/names.json';
+import config from '../assets/config.json';
 
-const years = {
-	first: 1900,
-	last: 2024,
-};
+const years = config;
 
 const yearList = (first = years.first, last = years.last) => [...Array(last + 1 - first).keys()].map((index) => index + first);
 const titleCase = (name) => name.trim().slice(0, 1).toUpperCase() + name.trim().slice(1).toLowerCase();
@@ -14,6 +12,8 @@ export default {
 	install: (app) => {
 		app.config.globalProperties.$names = {
 			years: yearList,
+			first: years.first,
+			last: years.last,
 			names,
 			get nameArray() {
 				return Object.entries(names).map(([name, years]) => ({

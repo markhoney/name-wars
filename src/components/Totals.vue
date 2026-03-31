@@ -5,7 +5,7 @@
 		</template>
 		<b-list-group flush v-if="names">
 			<b-list-group-item v-for="(name, index) in names" :key="name.name" class="d-flex justify-content-between align-items-center">
-				{{index + 1}}. {{name.name}}
+				{{index + 1}}. <a :href="`/name/${name.name}`">{{name.name}}</a>
 				<b-badge pill>{{name.number}}</b-badge>
 			</b-list-group-item>
 		</b-list-group>

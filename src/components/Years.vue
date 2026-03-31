@@ -3,21 +3,21 @@
 		props: {
 			start: {
 				type: Number,
-				default: 1900,
+				default: null,
 			},
 			end: {
 				type: Number,
-				default: 2024,
+				default: null,
 			},
 			modelValue: {
 				type: Number,
-				default: 2024,
+				default: null,
 				required: true,
 			},
 		},
 		computed: {
 			years() {
-				return this.$names.years(this.start, this.end);
+				return this.$names.years(this.start ?? this.$names.first, this.end ?? this.$names.last);
 			}
 		},
 	};

@@ -31,8 +31,8 @@
 		},
 		data() {
 			return {
-				first: 1901,
-				last: 2024,
+				first: this.$names.first,
+				last: this.$names.last,
 			};
 		},
 		computed: {

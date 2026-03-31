@@ -5,8 +5,8 @@
 		</template>
 		<b-card-text>
 			<p>{{name}} was first used as a baby name in <strong>{{seen.first}}</strong>, and was last used in <strong>{{seen.last}}</strong>.</p>
-			<p><strong>{{number.total.toLocaleString()}}</strong> babies have been named {{name}} since 1900. The highest number of babies named {{name}} in a year was a total of <strong>{{number.highest.number.toLocaleString()}}</strong>, in <strong>{{number.highest.year}}</strong>.</p>
-			<p>{{name}} is the <strong>{{$names.ordinal(ranking.overall)}}</strong> most popular name overall since 1900 in New Zealand, and the <strong>{{$names.ordinal(ranking.last)}}</strong> most popular last year. This was {{ranking.direction}} from the previous year of <strong>{{ranking.change}}</strong> places.</p>
+			<p><strong>{{number.total.toLocaleString()}}</strong> babies have been named {{name}} since {{$names.first}}. The highest number of babies named {{name}} in a year was a total of <strong>{{number.highest.number.toLocaleString()}}</strong>, in <strong>{{number.highest.year}}</strong>.</p>
+			<p>{{name}} is the <strong>{{$names.ordinal(ranking.overall)}}</strong> most popular name overall since {{$names.first}} in New Zealand, and the <strong>{{$names.ordinal(ranking.last)}}</strong> most popular last year. This was {{ranking.direction}} from the previous year of <strong>{{ranking.change}}</strong> places.</p>
 		</b-card-text>
 	</b-card>
 </template>

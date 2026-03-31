@@ -16,6 +16,8 @@ app.use(BootstrapVue3);
 app.use(VueApexCharts);
 app.use(BabyNames);
 app.config.performance = true;
+// app.config.globalProperties.$start = 1900;
+// app.config.globalProperties.$end = 2025;
 app.use(router);
 app.mount('body');
 // app.mount('#app');

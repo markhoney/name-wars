@@ -8,8 +8,8 @@
 		components: {VueApexCharts},
 		data() {
 			return {
-				first: 1901,
-				last: 2024,
+				first: this.$names.first + 1,
+				last: this.$names.last,
 			};
 		},
 		computed: {
