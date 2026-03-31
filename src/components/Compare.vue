@@ -3,43 +3,21 @@
 		<vue-apex-charts type="line" :series="series" :options="chartOptions" :key="series.length" />
 	</b-col>
 	<b-col sm="6" lg="3">
-		<b-card>
-			<template #header>
-				<h2>Compare names</h2>
-			</template>
-			<b-card-text>
-				<b-form-group label="Names to compare" label-for="names">
-					<names id="names" v-model="nameList" :names="names" placeholder="e.g. Luke Leia" />
-				</b-form-group>
-				<b-form-group label="First Year" label-for="first">
-					<years id="first" v-model="first" />
-				</b-form-group>
-				<b-form-group label="Last Year" label-for="last">
-					<years id="last" v-model="last" />
-				</b-form-group>
-			</b-card-text>
-		</b-card>
+		<compare-names v-model:first="first" v-model:last="last" v-model:nameList="nameList" />
 	</b-col>
 </template>
 
 <script>
-	import Names from './NamesText.vue';
-	import Years from './Years.vue';
+	// import NameFacts from "./NameFacts.vue";
+	import CompareNames from './CompareNames.vue';
 	import VueApexCharts from "vue3-apexcharts";
 	export default {
-		components: {Names, Years, VueApexCharts},
-		props: {
-			value: {
-				type: String,
-				default: '',
-			},
-		},
+		components: {CompareNames, VueApexCharts},
 		data() {
 			return {
 				first: this.$names.first,
 				last: this.$names.last,
 				nameList: [],
-				names: 'Luke Leia',
 			};
 		},
 		computed: {
@@ -65,11 +43,6 @@
 		methods: {
 			sum(year) {
 				return (year.M || 0) + (year.F || 0);
-			},
-		},
-		watch: {
-			value(value) {
-				this.names = value;
 			},
 		},
 	};
