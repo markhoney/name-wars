@@ -5,7 +5,7 @@
 		</template>
 		<b-list-group flush>
 			<b-list-group-item v-for="spike in largest" :key="spike.name + spike.year" :variant="spike.diff > 0 ? 'success' : 'danger'" class="d-flex justify-content-between align-items-center">
-				{{spike.name}} ({{spike.year}}) <b-badge :variant="spike.diff > 0 ? 'success' : 'danger'" pill><template v-if="spike.diff > 0">+</template>{{spike.diff}}</b-badge>
+				<a :href="'/name/' + spike.name">{{spike.name}}</a> ({{spike.year}}) <b-badge :variant="spike.diff > 0 ? 'success' : 'danger'" pill><template v-if="spike.diff > 0">+</template>{{spike.diff}}</b-badge>
 			</b-list-group-item>
 		</b-list-group>
 		<template #footer>
