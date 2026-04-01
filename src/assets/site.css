@@ -1,0 +1,12 @@
+/* Global link styling */
+a {
+	color: #4f6fb3;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus-visible {
+	color: #3f5d9a;
+	text-decoration: underline;
+}
